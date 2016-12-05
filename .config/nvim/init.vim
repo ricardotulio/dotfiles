@@ -118,6 +118,7 @@ Plug 'tpope/vim-surround'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'MarcWeber/vim-addon-mw-utils' | Plug 'tomtom/tlib_vim' | Plug 'garbas/vim-snipmate'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/unit.vim'
 Plug 'shawncplus/phpcomplete.vim'
 
 " Programming Languages Plugins
@@ -268,11 +269,9 @@ nnoremap <leader>gp :Git push
 let g:deoplete#enable_at_startup = 1
 
 " ----------------------------------------------------------------------
-" | Plugin - Vim JSX                                                   |
+" | Plugin - phpcomplete
 " ----------------------------------------------------------------------
-
-" Let jsx syntax for non-jsx files (i.e: .js files)
-let g:jsx_ext_required = 0
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
 " ----------------------------------------------------------------------
 " | Plugin - NerdTree                                                  |
@@ -296,14 +295,23 @@ autocmd BufEnter * :AirlineRefresh
 " | Plugin - CtrlP                                                     |
 " ----------------------------------------------------------------------
 
+" Set words ever ignored
+set wildignore+=*/vendor/*,*/node_modules/*
+
 " Work not only in ancestor directories of the working directory
-let g:ctrlp_working_path_mode = 'a'
+let g:ctrlp_working_path_mode = 'ra'
 
 " Ignore custom folders
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store'
+let g:ctrlp_custom_ignore = 'node_modules\|vendor'
 
 " Ignore git ignored folders
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+
+" Set log dir
+let g:ctrlp_cache_dir = '~/.cache/ctrlp'
+
+" Persist log on exit
+let g:ctrlp_clear_cache_on_exit = 0
 
 " ----------------------------------------------------------------------
 " | Plugin - Yanstack                                                  |
@@ -332,13 +340,3 @@ let g:toggle_list_copen_command="Copen"
 " ----------------------------------------------------------------------
 
 noremap <C-F> :Ag!<space>
-
-" ----------------------------------------------------------------------
-" | Plugin - phpcomplete                                                        |
-" ----------------------------------------------------------------------
-let g:phpcomplete_relax_static_constraint = 1
-let g:phpcomplete_complete_for_unknown_classes = 1
-let g:phpcomplete_search_tags_for_variables = 1
-let g:phpcomplete_parse_docblock_comments = 1
-let g:phpcomplete_cache_taglists = 1
-let g:phpcomplete_enhance_jump_to_definition = 1
