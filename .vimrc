@@ -17,9 +17,9 @@ set backspace+=eol
 set backspace+=start
 
 " Set local directories for backup and swap files
-set backupdir=~/.nvim/backups
-set directory=~/.nvim/swaps
-set undodir=~/.nvim/undo
+set backupdir=~/.vim/backups
+set directory=~/.vim/swaps
+set undodir=~/.vim/undo
 
 " Display incomplete commands
 set showcmd
@@ -57,9 +57,6 @@ set number
 
 " Show cursor position
 set ruler
-
-" Turn off line wrapping
-set nowrap
 
 " Show 3 lines of context around the cursor.
 set scrolloff=3
@@ -118,11 +115,10 @@ Plug 'tpope/vim-surround'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'MarcWeber/vim-addon-mw-utils' | Plug 'tomtom/tlib_vim' | Plug 'garbas/vim-snipmate'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Shougo/unit.vim'
-Plug 'shawncplus/phpcomplete.vim'
 
 " Programming Languages Plugins
-Plug 'mxw/vim-jsx'
+Plug 'stephpy/vim-php-cs-fixer'
+Plug 'joonty/vim-phpqa'
 
 " Colors and Appearance Plugins
 Plug 'dracula/vim'
@@ -246,6 +242,9 @@ noremap <C-C> <esc>
 " Enter full-screen
 nnoremap <leader>fs :set lines=999 columns=999<cr>
 
+" Ident php code
+nnoremap <leader>pcf :call PhpCsFixerFixFile()<cr><cr>
+
 " ----------------------------------------------------------------------
 " | Plugin - Fugitive                                                  |
 " ----------------------------------------------------------------------
@@ -269,9 +268,11 @@ nnoremap <leader>gp :Git push
 let g:deoplete#enable_at_startup = 1
 
 " ----------------------------------------------------------------------
-" | Plugin - phpcomplete
+" | Plugin - Vim JSX                                                   |
 " ----------------------------------------------------------------------
-autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+
+" Let jsx syntax for non-jsx files (i.e: .js files)
+let g:jsx_ext_required = 0
 
 " ----------------------------------------------------------------------
 " | Plugin - NerdTree                                                  |
@@ -295,23 +296,14 @@ autocmd BufEnter * :AirlineRefresh
 " | Plugin - CtrlP                                                     |
 " ----------------------------------------------------------------------
 
-" Set words ever ignored
-set wildignore+=*/vendor/*,*/node_modules/*
-
 " Work not only in ancestor directories of the working directory
-let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_working_path_mode = 'a'
 
 " Ignore custom folders
-let g:ctrlp_custom_ignore = 'node_modules\|vendor'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store'
 
 " Ignore git ignored folders
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
-
-" Set log dir
-let g:ctrlp_cache_dir = '~/.cache/ctrlp'
-
-" Persist log on exit
-let g:ctrlp_clear_cache_on_exit = 0
 
 " ----------------------------------------------------------------------
 " | Plugin - Yanstack                                                  |
@@ -338,5 +330,25 @@ let g:toggle_list_copen_command="Copen"
 " ----------------------------------------------------------------------
 " | Plugin - Ag                                                        |
 " ----------------------------------------------------------------------
-
 noremap <C-F> :Ag!<space>
+
+" ----------------------------------------------------------------------
+" | Plugin - php-cs-fixer                                                     |
+" ----------------------------------------------------------------------
+let g:php_cs_fixer_config = "default"
+let g:php_cs_fixer_rules = "@PSR2"
+let g:php_cs_fixer_config_file = ".php_cs"
+let g:php_cs_fixer_php_path = "/usr/bin/php"
+let g:php_cs_fixer_enable_default_mapping = 1
+let g:php_cs_fixer_dry_run = 0
+let g:php_cs_fixer_verbose = 0
+
+" ----------------------------------------------------------------------
+" | Plugin - phpqa                                                     |
+" ----------------------------------------------------------------------
+let g:phpqa_codesniffer_args = ""
+let g:phpqa_codesniffer_cmd = "~/.composer/vendor/bin/phpcs"
+let g:phpqa_messdetector_cmd = "~/.composer/vendor/bin/phpmd"
+let g:phpqa_codesniffer_autorun = 0
+let g:phpqa_messdetector_autorun = 0
+let g:phpqa_codecoverage_autorun = 0
