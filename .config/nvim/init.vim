@@ -91,6 +91,7 @@ Plug 'vim-syntastic/syntastic'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'freeo/vim-kalisi'
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
@@ -118,6 +119,7 @@ if has('autocmd')
     set linespace=2
   augroup END
 endif
+set guifont=Droid_Sans_Mono_for_Powerline:h13
 
 " ----------------------------------------------------------------------
 " | Key Mappings                                                       |
@@ -167,10 +169,8 @@ vnoremap <C-Up> :m '<-2<CR>gv=gv
 nnoremap <C-S-d> yy p
 
 " Move tab
-nnoremap <F8> :sbnext<CR>
-nnoremap <S-F8> :sbprevious<CR>
-nnoremap <C-Left> :tabprevious<CR>
-nnoremap <C-Right> :tabnext<CR>
+nnoremap <C-u> :bprevious<CR>
+nnoremap <C-i> :bnext<CR>
 nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . (tabpagenr()+1)<CR>
 
@@ -236,7 +236,7 @@ let g:syntastic_php_checkers = ["php", "phpcs", "phpmd"]
 let g:syntastic_php_phpcs_args = "--standard=PSR2"
 
 " ----------------------------------------------------------------------
-" | Plugin - php-cs-fixer                                                     |
+" | Plugin - php-cs-fixer                                              |
 " ----------------------------------------------------------------------
 let g:php_cs_fixer_config = "default"
 let g:php_cs_fixer_rules = "@PSR2"
@@ -245,3 +245,9 @@ let g:php_cs_fixer_php_path = "/usr/bin/php"
 let g:php_cs_fixer_enable_default_mapping = 1
 let g:php_cs_fixer_dry_run = 0
 let g:php_cs_fixer_verbose = 0
+
+" ----------------------------------------------------------------------
+" | Plugin - vim-multiple-cursors                                      |
+" ----------------------------------------------------------------------
+let g:multi_cursor_quit_key='<C-c>'
+nnoremap <C-c> :call multiple_cursors#quit()<CR>
