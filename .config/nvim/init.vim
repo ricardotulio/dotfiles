@@ -82,6 +82,7 @@ Plug 'rking/ag.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'scrooloose/nerdcommenter'
 
 " Programming Languages Plugins
 Plug 'stephpy/vim-php-cs-fixer'
@@ -115,11 +116,10 @@ if has('autocmd')
   augroup set_font
     autocmd!
 
-    set guifont=Droid_Sans_Mono_for_Powerline:h13
+    set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete:h11
     set linespace=2
   augroup END
 endif
-set guifont=Droid_Sans_Mono_for_Powerline:h13
 
 " ----------------------------------------------------------------------
 " | Key Mappings                                                       |
@@ -171,6 +171,7 @@ nnoremap <C-S-d> yy p
 " Move tab
 nnoremap <C-u> :bprevious<CR>
 nnoremap <C-i> :bnext<CR>
+nnoremap <C-q> :bdelete<CR>
 nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . (tabpagenr()+1)<CR>
 
