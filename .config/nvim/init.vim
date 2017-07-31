@@ -46,10 +46,6 @@ set ignorecase
 " Search case-sensitive if expression contains a capital letter
 set smartcase
 
-" Show line numbers
-set relativenumber
-
-
 " Show cursor position
 set ruler
 
@@ -94,11 +90,12 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'freeo/vim-kalisi'
 Plug 'ryanoasis/vim-devicons'
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
 
 call plug#end()
 
 " ----------------------------------------------------------------------
-" | Automatic Commands                                                 
+" | Automatic Commands                                                 |
 " ----------------------------------------------------------------------
 
 if has('autocmd')
@@ -180,6 +177,11 @@ nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . (tabpagenr()+1)<CR>
 nnoremap <C-s> <Esc>:w<CR>
 
 " ----------------------------------------------------------------------
+" | Plugin - Number Toggle                                             |
+" ----------------------------------------------------------------------
+let g:NumberToggleTrigger="<leader>ll"
+
+" ----------------------------------------------------------------------
 " | Plugin - NerdTree                                                  |
 " ----------------------------------------------------------------------
 noremap <leader>ft :NERDTreeToggle<CR>
@@ -219,11 +221,11 @@ let g:airline#extensions#tabline#enabled = 1
 " Enable CursorLine
 set cursorline
 
+" Set relativenumber
+set relativenumber
+
 " Default Colors for CursorLine
 highlight CursorLine ctermbg=235 ctermfg=None
-
-" Set Number Trigger
-let g:NumberToggleTrigger="<leader>ll"
 
 " Highlight Current Line Number
 hi CursorLineNR cterm=bold ctermbg=None ctermfg=Yellow
