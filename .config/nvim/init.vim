@@ -49,6 +49,7 @@ set smartcase
 " Show line numbers
 set relativenumber
 
+
 " Show cursor position
 set ruler
 
@@ -68,9 +69,9 @@ set mouse=a
 set laststatus=2
 
 " Set global <TAB> settings
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set expandtab
 
 " Start Plug bundles
@@ -82,7 +83,7 @@ Plug 'rking/ag.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-commentary'
 
 " Programming Languages Plugins
 Plug 'stephpy/vim-php-cs-fixer'
@@ -97,7 +98,7 @@ Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 " ----------------------------------------------------------------------
-" | Automatic Commands                                                 |
+" | Automatic Commands                                                 
 " ----------------------------------------------------------------------
 
 if has('autocmd')
@@ -226,6 +227,14 @@ let g:NumberToggleTrigger="<leader>ll"
 
 " Highlight Current Line Number
 hi CursorLineNR cterm=bold ctermbg=None ctermfg=Yellow
+
+" Highlight white spaces
+highlight ExtraWhitespace ctermbg=red guibg=re
+match ExtraWhitespace /\s\+\%#\@<!$/
+
+" Highlight 80 columns
+highlight ColorColumn ctermbg=236
+let &colorcolumn=join(range(81,999),",")
 
 " Use tab navigation
 set switchbuf=usetab
