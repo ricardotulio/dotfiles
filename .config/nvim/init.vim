@@ -65,9 +65,9 @@ set mouse=a
 set laststatus=2
 
 " Set global <TAB> settings
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 set expandtab
 
 " Start Plug bundles
@@ -80,6 +80,9 @@ Plug 'scrooloose/nerdtree'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-git'
+Plug 'mhinz/vim-signify'
+Plug 'airblade/vim-gitgutter'
 
 " Programming Languages Plugins
 Plug 'stephpy/vim-php-cs-fixer'
@@ -91,6 +94,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'freeo/vim-kalisi'
 Plug 'ryanoasis/vim-devicons'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
@@ -223,6 +227,7 @@ set cursorline
 
 " Set relativenumber
 set relativenumber
+set number
 
 " Default Colors for CursorLine
 highlight CursorLine ctermbg=235 ctermfg=None
@@ -237,6 +242,12 @@ match ExtraWhitespace /\s\+\%#\@<!$/
 " Highlight 80 columns
 highlight ColorColumn ctermbg=236
 let &colorcolumn=join(range(81,999),",")
+
+" Highlight git diff
+hi DiffAdd cterm=bold ctermbg=21 ctermfg=255
+hi DiffChange cterm=bold ctermbg=21 ctermfg=255
+hi DiffText cterm=bold ctermbg=21 ctermfg=255
+hi DiffDelete cterm=bold ctermbg=21 ctermfg=255
 
 " Use tab navigation
 set switchbuf=usetab
