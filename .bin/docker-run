@@ -1,0 +1,21 @@
+#!/bin/bash
+
+function random() {
+  echo $(grep -m1 -ao '[0-9]' /dev/urandom | sed s/$1/$2/ | head -n1)
+}
+
+SUBNET=172.$(random 1 254)
+IP_ADDRESS=$SUBNET.$(random 1 255).$(random 2 254)
+NETWORK_NAME=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
+NETWORK_ID=$(docker network create --subnet $SUBNET.0.0/16 $NETWORK_NAME)
+
+echo "Running on $IP_ADDRESS"
+
+docker run --rm -it \
+  -v $(pwd):$(pwd) \
+  -w $(pwd) \
+  --net $NETWORK_NAME \
+  --ip $IP_ADDRESS \
+  --expose=1024-65535 $*
+
+docker network rm $NETWORK_ID > /dev/null 2>&1
