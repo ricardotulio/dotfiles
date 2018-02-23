@@ -87,6 +87,7 @@ Plug 'airblade/vim-gitgutter'
 " Programming Languages Plugins
 Plug 'stephpy/vim-php-cs-fixer'
 Plug 'vim-syntastic/syntastic'
+Plug 'swekaj/php-foldexpr.vim'
 
 " Colors and Appearance Plugins
 Plug 'vim-airline/vim-airline'
@@ -252,6 +253,11 @@ hi DiffDelete cterm=bold ctermbg=21 ctermfg=255
 " Use tab navigation
 set switchbuf=usetab
 
+" Enable function fold
+set foldmethod=syntax
+set foldlevel=1
+set foldclose=all
+
 " ----------------------------------------------------------------------
 " | Plugin - Syntastic                                                 |
 " ----------------------------------------------------------------------
@@ -274,3 +280,9 @@ let g:php_cs_fixer_verbose = 0
 " ----------------------------------------------------------------------
 let g:multi_cursor_quit_key='<C-c>'
 nnoremap <C-c> :call multiple_cursors#quit()<CR>
+
+" ----------------------------------------------------------------------
+" | Plugin - swekaj/phpfoldexpr.vim                                    |
+" ----------------------------------------------------------------------
+let b:phpfold_use = 1
+let b:phpfold_text_right_lines = 1
