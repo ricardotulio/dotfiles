@@ -65,10 +65,12 @@ set mouse=a
 set laststatus=2
 
 " Set global <TAB> settings
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set expandtab
+" for js/json/html/css/scss/sass files, 2 spaces
+autocmd Filetype javascript setlocal ts=2 sw=2 expandtab
+autocmd Filetype html setlocal ts=2 sw=2 expandtab
+
+" for php files, 4 spaces
+autocmd Filetype php setlocal ts=4 sw=4 expandtab
 
 " Start Plug bundles
 call plug#begin('~/.vim/plugged')
@@ -270,7 +272,7 @@ let g:syntastic_php_phpcs_args = "--standard=PSR2"
 let g:php_cs_fixer_config = "default"
 let g:php_cs_fixer_rules = "@PSR2"
 let g:php_cs_fixer_config_file = ".php_cs"
-let g:php_cs_fixer_php_path = "/usr/bin/php"
+let g:php_cs_fixer_php_path = "/home/ricardo/.local/bin/php"
 let g:php_cs_fixer_enable_default_mapping = 1
 let g:php_cs_fixer_dry_run = 0
 let g:php_cs_fixer_verbose = 0
