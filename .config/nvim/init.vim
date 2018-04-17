@@ -64,6 +64,12 @@ set mouse=a
 " Show the status line all the time
 set laststatus=2
 
+" Set tabspace by filetype
+autocmd FileType html :setlocal sw=2 ts=2 sts=2
+autocmd FileType js :setlocal sw=2 ts=2 sts=2
+autocmd FileType yml :setlocal sw=2 ts=2 sts=2
+autocmd FileType php :setlocal sw=4 ts=4 sts=4
+
 " Set global <TAB> settings
 " for js/json/html/css/scss/sass files, 2 spaces
 autocmd Filetype javascript setlocal ts=2 sw=2 expandtab
