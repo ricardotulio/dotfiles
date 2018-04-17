@@ -4,6 +4,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/home/ricardo/.oh-my-zsh
 export PATH=$PATH:~/.composer/vendor/bin/
+export PATH=$PATH:/opt/node/bin/
 
 # Set default PHP version
 export PHP_VERSION=7.2
