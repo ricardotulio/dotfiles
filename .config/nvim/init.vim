@@ -91,7 +91,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-git'
 Plug 'mhinz/vim-signify'
 Plug 'airblade/vim-gitgutter'
-Plug 'Townk/vim-autoclose'
+Plug 'Raimondi/delimitMate'
 Plug 'Valloric/YouCompleteMe'
 
 " Programming Languages Plugins
