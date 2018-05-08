@@ -92,6 +92,7 @@ Plug 'tpope/vim-git'
 Plug 'mhinz/vim-signify'
 Plug 'airblade/vim-gitgutter'
 Plug 'Townk/vim-autoclose'
+Plug 'Valloric/YouCompleteMe'
 
 " Programming Languages Plugins
 Plug 'stephpy/vim-php-cs-fixer'
