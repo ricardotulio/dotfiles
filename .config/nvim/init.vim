@@ -67,6 +67,7 @@ set laststatus=2
 " Set tabspace by filetype
 autocmd FileType html :setlocal sw=2 ts=2 sts=2
 autocmd FileType js :setlocal sw=2 ts=2 sts=2
+autocmd FileType ts :setlocal sw=2 ts=2 sts=2
 autocmd FileType yml :setlocal sw=2 ts=2 sts=2
 autocmd FileType php :setlocal sw=4 ts=4 sts=4
 
@@ -93,11 +94,14 @@ Plug 'mhinz/vim-signify'
 Plug 'airblade/vim-gitgutter'
 Plug 'Raimondi/delimitMate'
 Plug 'Valloric/YouCompleteMe'
+Plug 'alvan/vim-closetag'
 
 " Programming Languages Plugins
 Plug 'stephpy/vim-php-cs-fixer'
 Plug 'vim-syntastic/syntastic'
 Plug 'swekaj/php-foldexpr.vim'
+Plug 'bitfyre/vim-indent-html'
+Plug 'leafgarland/typescript-vim'
 
 " Colors and Appearance Plugins
 Plug 'vim-airline/vim-airline'
