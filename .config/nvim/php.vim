@@ -1,5 +1,5 @@
 " identation
-setlocal sw=4 ts=4 sts=4
+setlocal sw=4 ts=4 sts=4 expandtab
 
 " syntastic for PHP
 let g:syntastic_php_checkers = ["php"]
