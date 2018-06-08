@@ -2,7 +2,7 @@
 setlocal sw=4 ts=4 sts=4 expandtab
 
 " syntastic for PHP
-let g:syntastic_php_checkers = ["php"]
+let g:syntastic_php_checkers = ["php", "phpmd", "phpcs"]
 let g:syntastic_php_phpcs_args = "--standard=PSR2"
 
 " php cs fixer
