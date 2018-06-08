@@ -1,5 +1,5 @@
 " Set default shell
-set shell=/bin/fish
+set shell=/usr/bin/fish
 
 " Don't make vim vi-compatible
 set nocompatible

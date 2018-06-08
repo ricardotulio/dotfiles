@@ -23,13 +23,6 @@ let g:ctrlp_user_command = ['find %s -type f']
 noremap <C-F> :Ag!<space>
 
 " ----------------------------------------------------------------------
-" | Plugin - Airline                                                   |
-" ----------------------------------------------------------------------
-let g:airline_powerline_fonts = 1
-let g:airline_theme = 'kalisi'
-let g:airline#extensions#tabline#enabled = 1
-
-" ----------------------------------------------------------------------
 " | Plugin - vim-multiple-cursors                                      |
 " ----------------------------------------------------------------------
 let g:multi_cursor_quit_key='<C-c>'
@@ -46,7 +39,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
-let g:syntastic_aggregate_errors = 1
+let g:syntastic_aggregate_errors = 0
 
 " ----------------------------------------------------------------------
 " | Plugin - 907th/vim-auto-save                                       |

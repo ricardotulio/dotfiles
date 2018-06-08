@@ -25,6 +25,7 @@ Plug 'leafgarland/typescript-vim'
 " Colors and Appearance Plugins
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'joshdick/onedark.vim'
 Plug 'freeo/vim-kalisi'
 Plug 'ryanoasis/vim-devicons'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
